@@ -107,7 +107,14 @@ function resetDesignFlow() {
 	designNameInput.focus();
 }
 
-const GEMINI_PROXY_ENDPOINT = "/api/gemini";
+// The Gemini proxy runs as a separate Cloudflare Worker (see worker/index.js),
+// not on this origin, so it needs an absolute URL. `npx wrangler dev` serves
+// it locally at 127.0.0.1:8787; after `npx wrangler deploy` replace the
+// production URL below with the one Wrangler prints (or your custom domain).
+const GEMINI_PROXY_ENDPOINT =
+	window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+		? "http://127.0.0.1:8787"
+		: "https://hyphen-gemini-proxy.YOUR-SUBDOMAIN.workers.dev";
 
 async function callGeminiProxy(model, body) {
 	const response = await fetch(GEMINI_PROXY_ENDPOINT, {
