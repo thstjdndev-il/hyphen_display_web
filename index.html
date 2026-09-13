@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>꿈결</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/static/complete/WantedSans.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="home" aria-label="꿈결 첫 화면">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="LANDING 홈">
+          <img class="header-logo" src="asset/logo.png" alt="LANDING" />
+        </a>
+        <nav class="header-nav" aria-label="페이지 메뉴">
+          <a href="#background" data-view="background">Background</a>
+          <a href="#solution" data-view="solution">Solution</a>
+          <a href="#design" data-view="design">Design</a>
+        </nav>
+      </header>
+      <div class="home-content">
+        <img class="wordmark" src="asset/logo.png" alt="LANDING" />
+        <p class="home-subtitle">꿈을 통해 몰랐던 감정을 알아가는 서비스,<br />LANDING</p>
+      </div>
+      <img id="app" class="hand" src="asset/hand_mck.png" alt="꿈결 앱이 실행된 스마트폰을 들고 있는 손" />
+    </main>
+    <main class="background-page" id="background" aria-labelledby="background-title" hidden>
+      <header class="background-header">
+        <a class="background-brand" href="#" data-view="home" aria-label="LANDING 홈">
+          <img src="asset/Header_2_landing.png" alt="LANDING" />
+        </a>
+        <nav class="background-nav" aria-label="페이지 메뉴">
+          <a class="is-active" href="#background" data-view="background" aria-current="page">Background</a>
+          <a href="#solution" data-view="solution">Solution</a>
+          <a href="#design" data-view="design">Design</a>
+        </nav>
+      </header>
+      <div class="background-content">
+        <div class="background-hero">
+          <img src="asset/Background_tab_image.png" alt="침대 위에서 빛나는 스마트폰" />
+        </div>
+        <section class="background-intro">
+          <div class="background-headline">
+            <h1 id="background-title">꿈은 솔직한 나 자신을<br />드러내는 매체</h1>
+            <p>꿈은 미처 알아채지 못한 감정을 드러내기 때문에, 꿈을 기록함으로써 자신의 감정과 정신상태를 이해할 수 있습니다</p>
+          </div>
+          <div class="background-cards">
+            <article class="background-card">
+              <div class="background-card-head" role="button" tabindex="0" aria-expanded="true">
+                <h2>꿈 기록을 통해 몰랐던 감정을 파악할 수 있다</h2>
+                <svg class="background-caret" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 10l6 6 6-6" stroke="#2E2D39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="background-card-body background-quotes">
+                <div class="background-quote">
+                  <div class="background-quote-title">
+                    <h3>억눌린 내면의 표현</h3>
+                    <span>분석심리학연구소 소장 이유경</span>
+                  </div>
+                  <p>일상생활 중 억눌린 본성적 욕구, 정신을 꿈을 통해 자아에게 전달하려 하는 것</p>
+                </div>
+                <div class="background-quote">
+                  <div class="background-quote-title">
+                    <h3>꿈 기록을 통한 자기 이해</h3>
+                    <span>치유상담대학원대 상담심리학과 교수 고혜경</span>
+                  </div>
+                  <p>당사자의 경험에 관련되어 꿈을 해석하는 자세가 내면을 깊이 들여다보기에 적합하므로, 일반적인 해석보다 기록을 통해 꿈에서 느꼈던 감정을 언어화하는 과정이 중요하다 .</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="background-card">
+              <div class="background-card-head" role="button" tabindex="0" aria-expanded="true">
+                <h2>주술적 접근이 아닌 현실적 분석이 필요한 꿈 기록</h2>
+                <svg class="background-caret" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 10l6 6 6-6" stroke="#2E2D39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="background-card-body">
+                <h3 class="background-body-title">기존 주술적 꿈 해몽의 한계</h3>
+                <div class="background-limit-grid">
+                  <div class="background-limit">
+                    <h4>개인의 맥락 무시</h4>
+                    <p>뱀이 나오면 길몽, 이가 빠지면 우환 등 주술적 해몽은 수많은 사람의 고유한 배경과 감정을 고려하지 못함</p>
+                  </div>
+                  <div class="background-limit">
+                    <h4>해석 주도권 상실</h4>
+                    <p>내 감정이 보내는 신호를 읽어내지 못하고 외부의 획일적인 잣대에 의존하게 되어 꿈이 가진 메시지를 놓치게 됨</p>
+                  </div>
+                  <div class="background-limit">
+                    <h4>현실과 동떨어진 해석</h4>
+                    <p>꿈의 원인을 현재의 감정 상태가 아닌 우연한 징조로 인식하게 해 현실과 동떨어진 해석에 이르게 됨</p>
+                  </div>
+                </div>
+              </div>
+              <div class="background-card-body">
+                <h3 class="background-body-title">일상과 꿈 감정을 트래킹하는 서비스가 필요한 현재</h3>
+                <img class="background-body-image" src="asset/review Matrix_web.png" alt="꿈 기록 서비스 비교 분석표" />
+              </div>
+            </article>
+
+            <article class="background-card">
+              <div class="background-card-head" role="button" tabindex="0" aria-expanded="true">
+                <h2>꿈을 통해 나의 감정을 이해하려면 무엇이 필요할까?</h2>
+                <svg class="background-caret" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 10l6 6 6-6" stroke="#2E2D39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="background-card-body background-solutions">
+                <div class="background-solution">
+                  <div class="background-solution-title">
+                    <span>Solution 01</span>
+                    <h4>감정을 포함한 꾸준한 기록</h4>
+                  </div>
+                  <p>꿈에서 느낀 감정을 포함해 기록을 꾸준히 이어간다</p>
+                </div>
+                <div class="background-solution">
+                  <div class="background-solution-title">
+                    <span>Solution 02</span>
+                    <h4>일상에서의 사건 및 감정 수집</h4>
+                  </div>
+                  <p>단순한 꿈인지, 일상에서 영향을 받은 포인트가 있었는지 비교하기 위해 일상의 기록을 수집한다</p>
+                </div>
+                <div class="background-solution">
+                  <div class="background-solution-title">
+                    <span>Solution 03</span>
+                    <h4>회고 리포트</h4>
+                  </div>
+                  <p>기록을 모아 반복되는 감정, 꿈에서 반복적으로 등장하는 요소를 추적한다</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+    <main class="solution-page" id="solution" aria-labelledby="solution-title" hidden>
+      <header class="background-header">
+        <a class="background-brand" href="#" data-view="home" aria-label="LANDING 홈">
+          <img src="asset/Header_2_landing.png" alt="LANDING" />
+        </a>
+        <nav class="background-nav" aria-label="페이지 메뉴">
+          <a href="#background" data-view="background">Background</a>
+          <a class="is-active" href="#solution" data-view="solution" aria-current="page">Solution</a>
+          <a href="#design" data-view="design">Design</a>
+        </nav>
+      </header>
+      <div class="background-content">
+        <section class="solution-intro">
+          <div class="solution-hero">
+            <img src="asset/Solution_tab_image.png" alt="침대에 엎드려 스마트폰을 보는 사람" />
+          </div>
+          <div class="solution-column">
+            <div class="background-headline solution-headline">
+              <h1 id="solution-title">비몽사몽 기록해도 충분하도록</h1>
+              <p>잠에서 막 깨어난 와중에도 기록하기 편하도록, 빠르게 접근하고 자유롭게 기록합니다. 모든 꿈 내용을 떠올리려 무리하여 기록하지 않고, 기억나는 내용만 적어도 충분하도록 꿈 기록을 자동으로 정리합니다.</p>
+            </div>
+            <div class="background-cards">
+              <article class="background-card">
+                <div class="background-card-head" role="button" tabindex="0" aria-expanded="true">
+                  <h2>꿈을 기록할 때 무엇을 원할까?</h2>
+                  <svg class="background-caret" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 10l6 6 6-6" stroke="#2E2D39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="background-card-body">
+                  <div class="solution-body-stack">
+                    <div class="solution-body-head">
+                      <p>메모장에 입력하듯 빠르게 접근할 수 있고, 자유롭고 형식 없는 기록을 선호</p>
+                      <div class="solution-meta">
+                        <span>구글폼 설문</span>
+                        <span>0722 - 0805</span>
+                        <span>88명 응답</span>
+                      </div>
+                    </div>
+                    <img class="solution-stat-image" src="asset/solution_stat.png" alt="사용하는 매체 메모 앱 69%, 기록 방식 텍스트 91.7%, 매체 사용 이유 번거롭지 않아서 41.7%" />
+                  </div>
+                </div>
+                <div class="background-card-body solution-painpoint-body">
+                  <div class="solution-body-stack">
+                    <div class="solution-body-head">
+                      <p>꿈 내용을 전부 기록하고 싶지만, 일부를 잊게 되어 기록이 만족스럽지 않고 찝찝하다</p>
+                      <div class="solution-meta">
+                        <span>구글폼 설문</span>
+                        <span>0722 - 0805</span>
+                        <span>88명 응답</span>
+                      </div>
+                    </div>
+                    <img class="solution-stat-image" src="asset/solution_stat 2.png" alt="중시하는 것 기억나는 내용 전부 60.7%, 기록 중 불편한 점 기록 중 기억 휘발 44%" />
+                  </div>
+                  <div class="solution-weneed">
+                    <span>We need</span>
+                    <p>내용을 잊어도 꿈 기록에 만족할 수 있어야 한다</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="background-card">
+                <div class="background-card-head" role="button" tabindex="0" aria-expanded="true">
+                  <h2>내용을 잊어도 기록에 만족하려면 어떻게 해야할까?</h2>
+                  <svg class="background-caret" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 10l6 6 6-6" stroke="#2E2D39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="background-card-body solution-plain-body">
+                  <div class="solution-hypothesis-intro">
+                    <span>가설 수립 및 설문 진행</span>
+                    <div class="solution-hypothesis-title">
+                      <h3>꿈 기록의 정리본을 제공하면 기록을 다 못해도 만족할 것이다</h3>
+                      <p>정리본이 없는 프로토타입 A와, 정리본이 있는 프로토타입 B의 주관적 만족도를 비교한다</p>
+                    </div>
+                  </div>
+                  <div class="solution-protos">
+                    <div class="solution-proto solution-proto-a">
+                      <span>Prototype A</span>
+                      <img src="asset/Proto_A.png" alt="정리본이 없는 프로토타입 A 화면" />
+                    </div>
+                    <div class="solution-proto solution-proto-b">
+                      <span>Prototype B</span>
+                      <img src="asset/Proto_B.png" alt="AI 정리본을 제공하는 프로토타입 B 화면" />
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="background-card">
+                <div class="background-card-head" role="button" tabindex="0" aria-expanded="true">
+                  <h2>정리본을 제공하면 내용을 잊어도 꿈 기록에 만족할 수 있다</h2>
+                  <svg class="background-caret" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 10l6 6 6-6" stroke="#2E2D39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="background-card-body solution-plain-body">
+                  <div class="solution-body-head solution-body-head-dark">
+                    <p>A에 비해, 프로토타입 B의 만족도가 높고 아쉬움의 정도가 낮았다</p>
+                    <div class="solution-meta">
+                      <span>A 15명, B 16명</span>
+                      <span>0728 - 0805</span>
+                    </div>
+                  </div>
+                  <div class="solution-result-stack">
+                    <div class="solution-result-question">
+                      <p>Q. 기록을 끝내고, 못 다 적은 내용에 대해 아쉬움이 남으시나요?</p>
+                    </div>
+                    <img class="solution-result-image" src="asset/Proto_B_r.png" alt="프로토타입 B 결과: 아쉬움이 남지 않는다 62.5%" />
+                    <img class="solution-result-image" src="asset/Proto_A_r.png" alt="프로토타입 A 결과: 약간 아쉬움이 남는다 80%" />
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <main class="design-page" id="design" aria-label="Design 인터랙션 데모" hidden>
+      <header class="design-header">
+        <a class="background-brand" href="#" data-view="home" aria-label="LANDING 홈">
+          <img src="asset/Header_2_landing.png" alt="LANDING" />
+        </a>
+        <nav class="design-nav" aria-label="페이지 메뉴">
+          <a href="#background" data-view="background">Background</a>
+          <a href="#solution" data-view="solution">Solution</a>
+          <a class="is-active" href="#design" data-view="design" aria-current="page">Design</a>
+        </nav>
+      </header>
+      <div class="design-stage">
+        <section class="design-step design-step-1 is-active" data-step="1">
+          <div class="design-text">
+            <div class="design-name-row">
+              <span class="design-name-input" contenteditable="true" role="textbox" aria-label="이름 입력" spellcheck="false"></span>
+              <span>님,</span>
+            </div>
+            <p class="design-hint">이름을 입력해주세요</p>
+          </div>
+        </section>
+
+        <section class="design-step design-step-2" data-step="2" hidden>
+          <div class="design-text">
+            <div class="design-name-row design-name-row-sm">
+              <span class="design-name-value">손서우</span>
+              <span>님,</span>
+            </div>
+            <h2 class="design-typewriter">어떤 꿈을 꾸셨나요?</h2>
+          </div>
+        </section>
+
+        <section class="design-step design-step-3" data-step="3" hidden>
+          <div class="design-compose">
+            <div class="design-compose-head">
+              <h2>어떤 꿈을 꾸셨나요?</h2>
+              <button type="button" class="design-remember-btn">여기까지 기억</button>
+            </div>
+            <div class="design-compose-box" contenteditable="true" data-placeholder="자유롭게 입력해주세요. 내용은 저장되지 않아요"></div>
+          </div>
+          <div class="design-loading-overlay" id="designLoadingOverlay">
+            <div class="design-loading">
+              <h2>꿈을 정리할게요</h2>
+              <p>1분 정도 기다려주세요</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="design-step design-step-5" data-step="5" hidden>
+          <div class="design-report">
+            <div class="design-report-image-wrap">
+              <img class="design-report-image" id="designReportImage" alt="AI가 생성한 꿈 이미지" />
+              <p class="design-report-image-hint">이미지를 클릭해 프롬프트를 수정할 수 있어요</p>
+            </div>
+            <div class="design-report-body">
+              <div class="design-report-card design-report-head">
+                <span class="design-report-date" id="designReportDate"></span>
+                <div class="design-report-title-row">
+                  <h2 id="designReportTitle"></h2>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M4 20l1.1-4.4a2 2 0 0 1 .53-.94l9.9-9.9a1.5 1.5 0 0 1 2.12 0l1.6 1.6a1.5 1.5 0 0 1 0 2.12l-9.9 9.9a2 2 0 0 1-.94.53L4 20Z" stroke="#9C92DD" stroke-width="1.6" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+              <div class="design-report-card design-report-text" id="designReportText"></div>
+              <div class="design-report-card design-report-summary">
+                <div class="design-report-summary-head">
+                  <span>핵심 소재</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2L12 2Z" fill="#9C92DD" />
+                  </svg>
+                </div>
+                <div class="design-report-tags" id="designReportTags"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
