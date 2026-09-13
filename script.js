@@ -107,26 +107,23 @@ function resetDesignFlow() {
 	designNameInput.focus();
 }
 
-// The Gemini proxy runs as a separate Cloudflare Worker (see worker/index.js),
-// not on this origin, so it needs an absolute URL. `npx wrangler dev` serves
-// it locally at 127.0.0.1:8787; after `npx wrangler deploy` replace the
-// production URL below with the one Wrangler prints (or your custom domain).
-const GEMINI_PROXY_ENDPOINT =
-	window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
-		? "http://127.0.0.1:8787"
-		: "https://hyphen-gemini-proxy.YOUR-SUBDOMAIN.workers.dev";
+// GitHub Pages is static-only (no server to hide a key behind), so this key
+// is called directly from the browser and is publicly visible in the page
+// source to anyone who looks. Restrict it to the Generative Language API only
+// and set a quota/budget alert on it in Google AI Studio.
+const GEMINI_API_KEY = "AQ.Ab8RN6LWyqhWY-hScVnPpFoOsLxaUazLOdbH-5wvv_kW8vKP7w";
 
-async function callGeminiProxy(model, body) {
-	const response = await fetch(GEMINI_PROXY_ENDPOINT, {
+async function callGeminiApi(model, body) {
+	const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify({ model, ...body }),
+		body: JSON.stringify(body),
 	});
 
 	const data = await response.json();
 
 	if (!response.ok) {
-		throw new Error(data?.error || `요청 실패 (${response.status})`);
+		throw new Error(data?.error?.message || `요청 실패 (${response.status})`);
 	}
 
 	return data;
@@ -146,7 +143,7 @@ async function generateDreamTitleAndTags(text) {
 		'{"title": "꿈에서 벌어진 일을 그대로 요약한 한 줄 제목 (명사형으로 끝내기, 15~25자, 예: \'토끼로 변한 친구가 강아지를 안고 있는 꿈\')", "tags": ["꿈에 등장한 핵심 소재/인물/사물 단어 1", "핵심 소재 2", "핵심 소재 3"]}',
 	].join("\n");
 
-	const data = await callGeminiProxy(GEMINI_TEXT_MODEL, {
+	const data = await callGeminiApi(GEMINI_TEXT_MODEL, {
 		contents: [{ parts: [{ text: prompt }] }],
 		generationConfig: { responseMimeType: "application/json" },
 	});
@@ -170,7 +167,7 @@ const GEMINI_IMAGE_RETRY_ATTEMPTS = 3;
 async function requestDreamImage(text) {
 	const prompt = `다음 꿈 내용을 바탕으로, 몽환적이고 부드러운 파스텔톤의 일러스트를 그려주세요. 글자나 텍스트는 절대 포함하지 마세요.\n\n꿈 내용: ${text}`;
 
-	const data = await callGeminiProxy(GEMINI_IMAGE_MODEL, {
+	const data = await callGeminiApi(GEMINI_IMAGE_MODEL, {
 		contents: [{ parts: [{ text: prompt }] }],
 	});
 

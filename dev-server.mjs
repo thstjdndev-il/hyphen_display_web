@@ -1,6 +1,6 @@
-// Local static file server for the site. Run alongside `npx wrangler dev`
-// (which serves the Gemini proxy worker at http://127.0.0.1:8787) so the
-// Design tab's AI flow works the same as it will in production.
+// Local static file server for the site. The site calls the Gemini API
+// directly from the browser (see script.js), so this is just for previewing
+// over http:// instead of file:// -- no separate backend needed.
 //
 // Usage:
 //   node dev-server.mjs
@@ -43,5 +43,4 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
 	console.log(`Dev server running at http://localhost:${PORT}`);
-	console.log("Run `npx wrangler dev` in another terminal to serve the Gemini proxy at http://127.0.0.1:8787");
 });
