@@ -274,7 +274,7 @@ body.is-scroll-view #stage {
   margin: 0;
   color: #2e2d39;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.7;
   letter-spacing: -0.8px;
 }
@@ -307,7 +307,7 @@ body.is-scroll-view #stage {
   margin: 0;
   color: #393749;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.35;
 }
 
@@ -337,14 +337,14 @@ body.is-scroll-view #stage {
   margin: 0;
   color: #535068;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.35;
 }
 
 .background-quote-title span {
   color: #9c98b3;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.5;
 }
 
@@ -352,7 +352,7 @@ body.is-scroll-view #stage {
   margin: 0;
   color: #535068;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.7;
 }
 
@@ -378,7 +378,7 @@ body.is-scroll-view #stage {
   margin: 0;
   color: #2e2d39;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.5;
 }
 
@@ -386,7 +386,7 @@ body.is-scroll-view #stage {
   margin: 0;
   color: #535068;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
 }
 
@@ -415,7 +415,7 @@ body.is-scroll-view #stage {
 .background-solution-title span {
   color: #9c98b3;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.5;
 }
 
@@ -423,7 +423,7 @@ body.is-scroll-view #stage {
   margin: 0;
   color: #535068;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.5;
 }
 
@@ -431,7 +431,7 @@ body.is-scroll-view #stage {
   margin: 0;
   color: #535068;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.7;
 }
 
@@ -488,7 +488,7 @@ body.is-scroll-view #stage {
   color: #535068;
   font-family: "Pretendard Variable", "Pretendard", sans-serif;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.5;
 }
 
@@ -506,7 +506,7 @@ body.is-scroll-view #stage {
   color: #7b7897;
   font-family: "Pretendard Variable", "Pretendard", sans-serif;
   font-size: 9px;
-  font-weight: 400;
+  font-weight: 300;
   opacity: 0.5;
   white-space: nowrap;
 }
@@ -536,7 +536,7 @@ body.is-scroll-view #stage {
   color: #7b7897;
   font-family: "Pretendard Variable", "Pretendard", sans-serif;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 300;
   opacity: 0.5;
 }
 
@@ -544,7 +544,7 @@ body.is-scroll-view #stage {
   margin: 0;
   color: #393749;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .solution-plain-body {
@@ -563,7 +563,7 @@ body.is-scroll-view #stage {
   color: #535068;
   font-family: "Pretendard Variable", "Pretendard", sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 300;
   opacity: 0.5;
 }
 
@@ -577,14 +577,14 @@ body.is-scroll-view #stage {
   margin: 0;
   color: #393749;
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .solution-hypothesis-title p {
   margin: 0;
   color: #7b7897;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
 }
 
@@ -613,7 +613,7 @@ body.is-scroll-view #stage {
 .solution-proto span {
   color: #705ea5;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .solution-proto img {
@@ -643,7 +643,7 @@ body.is-scroll-view #stage {
   margin: 0;
   color: #574f86;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .solution-result-image {
