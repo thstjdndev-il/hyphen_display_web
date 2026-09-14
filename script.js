@@ -327,6 +327,7 @@ function setView(view) {
 		window.scrollTo(0, 0);
 	}
 
+	collapseAccordionCards();
 	updateStageScale();
 }
 
@@ -343,13 +344,24 @@ viewTriggers.forEach((trigger) => {
 	});
 });
 
-document.querySelectorAll(".background-card-head").forEach((head) => {
+const accordionHeads = document.querySelectorAll(".background-card-head");
+
+function collapseAccordionCards() {
+	accordionHeads.forEach((head) => {
+		head.setAttribute("aria-expanded", "false");
+	});
+}
+
+accordionHeads.forEach((head) => {
+	const caret = head.querySelector(".background-caret");
+
 	function toggle() {
 		const expanded = head.getAttribute("aria-expanded") === "true";
 		head.setAttribute("aria-expanded", String(!expanded));
 	}
 
-	head.addEventListener("click", toggle);
+	// 카드 본문은 드롭다운 아이콘을 클릭했을 때만 펼쳐진다 (제목 클릭은 무시).
+	caret.addEventListener("click", toggle);
 	head.addEventListener("keydown", (event) => {
 		if (event.key === "Enter" || event.key === " ") {
 			event.preventDefault();

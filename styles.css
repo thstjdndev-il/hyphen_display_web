@@ -268,7 +268,6 @@ body.is-scroll-view #stage {
   align-items: flex-start;
   justify-content: space-between;
   gap: 8px;
-  cursor: pointer;
 }
 
 .background-card-head h2 {
@@ -283,6 +282,7 @@ body.is-scroll-view #stage {
 .background-caret {
   flex: none;
   margin-top: 4px;
+  cursor: pointer;
   transition: transform 200ms ease;
 }
 
