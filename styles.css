@@ -5,27 +5,54 @@
 html,
 body {
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   margin: 0;
 }
 
 body {
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
   background: #b59ce8;
   font-family: "Wanted Sans", "Noto Sans KR", sans-serif;
 }
 
-body.is-background {
+/* Background/Solution 탭처럼 세로로 긴 문서형 페이지일 때: 스테이지를 일반 문서 흐름에 놓고
+   가로 폭에 맞춰 스케일한 뒤 세로 스크롤을 허용한다. */
+body.is-scroll-view {
   overflow-y: auto;
   background: #f8f8fa;
 }
 
+/* 1920x1080 기준으로 고정 제작된 디자인을 담는 스테이지.
+   반응형으로 재배치하지 않고, 화면 크기에 맞춰 통째로 확대/축소만 한다. */
+#stage-outer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+body.is-scroll-view #stage-outer {
+  position: static;
+  inset: auto;
+  display: block;
+  overflow: hidden;
+}
+
+#stage {
+  width: 1920px;
+  transform-origin: center center;
+}
+
+body.is-scroll-view #stage {
+  transform-origin: top left;
+}
+
 .home {
   position: relative;
-  width: 100vw;
-  height: 100svh;
-  min-height: 620px;
+  width: 1920px;
+  height: 1080px;
   overflow: hidden;
   isolation: isolate;
   background: url("asset/Bg.png") center top / cover no-repeat;
@@ -41,7 +68,7 @@ body.is-background {
   justify-content: space-between;
   width: 100%;
   height: 100px;
-  padding: 0 clamp(28px, 6.25vw, 120px);
+  padding: 0 120px;
   background: rgba(255, 255, 255, 0.15);
   isolation: isolate;
   overflow: hidden;
@@ -104,7 +131,7 @@ body.is-background {
   height: 100%;
   padding: 0 20px;
   color: #fff;
-  font-size: clamp(15px, 1.25vw, 24px);
+  font-size: 24px;
   font-weight: 500;
   text-decoration: none;
 }
@@ -126,7 +153,7 @@ body.is-background {
   align-items: center;
   justify-content: space-between;
   height: 100px;
-  padding: 0 clamp(28px, 6.25vw, 120px);
+  padding: 0 120px;
   background: #fff;
 }
 
@@ -156,7 +183,7 @@ body.is-background {
   padding: 0 20px;
   border-bottom: 1px solid transparent;
   color: #b7b5c9;
-  font-size: clamp(15px, 1.25vw, 24px);
+  font-size: 24px;
   font-weight: 500;
   text-decoration: none;
 }
@@ -170,7 +197,7 @@ body.is-background {
   display: flex;
   flex-direction: column;
   gap: 106px;
-  padding: 32px clamp(28px, 6.25vw, 120px) 240px;
+  padding: 32px 120px 240px;
 }
 
 .background-hero {
@@ -179,7 +206,7 @@ body.is-background {
   aspect-ratio: 1680 / 431;
   overflow: hidden;
   place-items: center;
-  border-radius: clamp(24px, 4.4vw, 84px);
+  border-radius: 84px;
   background: #1b1724;
 }
 
@@ -194,7 +221,7 @@ body.is-background {
 .background-intro {
   display: grid;
   grid-template-columns: minmax(240px, 625fr) minmax(360px, 949fr);
-  gap: clamp(32px, 5.5vw, 106px);
+  gap: 105.6px;
   align-items: start;
 }
 
@@ -208,7 +235,7 @@ body.is-background {
 .background-headline h1 {
   margin: 0;
   color: #1e1e1e;
-  font-size: clamp(28px, 2.8vw, 54px);
+  font-size: 53.76px;
   font-weight: 600;
   line-height: 1.35;
   letter-spacing: -0.8px;
@@ -217,7 +244,7 @@ body.is-background {
 .background-headline p {
   margin: 0;
   color: #7b7897;
-  font-size: clamp(15px, 1.05vw, 20px);
+  font-size: 20px;
   line-height: 1.7;
 }
 
@@ -231,7 +258,7 @@ body.is-background {
   display: flex;
   flex-direction: column;
   gap: 28px;
-  padding: clamp(20px, 2.3vw, 32px) clamp(20px, 3vw, 44px);
+  padding: 32px 44px;
   border-radius: 36px;
   background: #fff;
 }
@@ -267,7 +294,7 @@ body.is-background {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: clamp(18px, 2.1vw, 32px);
+  padding: 32px;
   border-radius: 28px;
   background: #f8f8fa;
 }
@@ -279,7 +306,7 @@ body.is-background {
 .background-body-title {
   margin: 0;
   color: #393749;
-  font-size: clamp(18px, 1.6vw, 24px);
+  font-size: 24px;
   font-weight: 600;
   line-height: 1.35;
 }
@@ -291,13 +318,13 @@ body.is-background {
 }
 
 .background-quotes {
-  gap: clamp(28px, 4.2vw, 64px);
+  gap: 64px;
 }
 
 .background-quote {
   display: grid;
   grid-template-columns: minmax(160px, 235px) 1fr;
-  gap: clamp(24px, 4.2vw, 64px);
+  gap: 64px;
 }
 
 .background-quote-title {
@@ -309,14 +336,14 @@ body.is-background {
 .background-quote-title h3 {
   margin: 0;
   color: #535068;
-  font-size: clamp(16px, 1.05vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.35;
 }
 
 .background-quote-title span {
   color: #9c98b3;
-  font-size: clamp(12px, 0.75vw, 14px);
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
 }
@@ -324,7 +351,7 @@ body.is-background {
 .background-quote p {
   margin: 0;
   color: #535068;
-  font-size: clamp(14px, 0.95vw, 18px);
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.7;
 }
@@ -350,7 +377,7 @@ body.is-background {
 .background-limit h4 {
   margin: 0;
   color: #2e2d39;
-  font-size: clamp(15px, 0.95vw, 18px);
+  font-size: 18px;
   font-weight: 600;
   line-height: 1.5;
 }
@@ -358,7 +385,7 @@ body.is-background {
 .background-limit p {
   margin: 0;
   color: #535068;
-  font-size: clamp(12px, 0.75vw, 14px);
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -366,7 +393,7 @@ body.is-background {
 .background-solutions {
   flex-direction: row;
   flex-wrap: nowrap;
-  gap: clamp(16px, 4.2vw, 64px);
+  gap: 64px;
   border-radius: 24px;
   overflow-x: auto;
 }
@@ -387,7 +414,7 @@ body.is-background {
 
 .background-solution-title span {
   color: #9c98b3;
-  font-size: clamp(12px, 0.75vw, 14px);
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
 }
@@ -395,7 +422,7 @@ body.is-background {
 .background-solution-title h4 {
   margin: 0;
   color: #535068;
-  font-size: clamp(16px, 1.05vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.5;
 }
@@ -403,7 +430,7 @@ body.is-background {
 .background-solution p {
   margin: 0;
   color: #535068;
-  font-size: clamp(15px, 1.05vw, 20px);
+  font-size: 20px;
   font-weight: 400;
   line-height: 1.7;
 }
@@ -411,7 +438,7 @@ body.is-background {
 .solution-intro {
   display: flex;
   align-items: stretch;
-  gap: clamp(32px, 6.2vw, 106px);
+  gap: 106px;
 }
 
 .solution-hero {
@@ -419,7 +446,7 @@ body.is-background {
   width: 625px;
   height: 812px;
   overflow: hidden;
-  border-radius: clamp(24px, 4.9vw, 84px);
+  border-radius: 84px;
 }
 
 .solution-hero img {
@@ -434,7 +461,7 @@ body.is-background {
   display: flex;
   flex: 1 1 480px;
   flex-direction: column;
-  gap: clamp(48px, 7vw, 120px);
+  gap: 120px;
 }
 
 .solution-headline {
@@ -444,7 +471,7 @@ body.is-background {
 .solution-body-stack {
   display: flex;
   flex-direction: column;
-  gap: clamp(32px, 3.7vw, 64px);
+  gap: 64px;
 }
 
 .solution-body-head {
@@ -460,7 +487,7 @@ body.is-background {
   max-width: 500px;
   color: #535068;
   font-family: "Pretendard Variable", "Pretendard", sans-serif;
-  font-size: clamp(15px, 1.05vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.5;
 }
@@ -516,12 +543,12 @@ body.is-background {
 .solution-weneed p {
   margin: 0;
   color: #393749;
-  font-size: clamp(15px, 1.05vw, 18px);
+  font-size: 18px;
   font-weight: 600;
 }
 
 .solution-plain-body {
-  gap: clamp(32px, 3.7vw, 64px);
+  gap: 64px;
   padding: 32px 0;
   background: none;
 }
@@ -549,14 +576,14 @@ body.is-background {
 .solution-hypothesis-title h3 {
   margin: 0;
   color: #393749;
-  font-size: clamp(18px, 1.3vw, 22px);
+  font-size: 22px;
   font-weight: 600;
 }
 
 .solution-hypothesis-title p {
   margin: 0;
   color: #7b7897;
-  font-size: clamp(14px, 1.1vw, 18px);
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -564,14 +591,14 @@ body.is-background {
 .solution-protos {
   display: flex;
   flex-direction: column;
-  gap: clamp(32px, 3.3vw, 57px);
+  gap: 57px;
 }
 
 .solution-proto {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 24px clamp(18px, 2.1vw, 36px);
+  padding: 24px 36px;
   border-radius: 25px;
 }
 
@@ -585,7 +612,7 @@ body.is-background {
 
 .solution-proto span {
   color: #705ea5;
-  font-size: clamp(15px, 1.05vw, 18px);
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -615,7 +642,7 @@ body.is-background {
 .solution-result-question p {
   margin: 0;
   color: #574f86;
-  font-size: clamp(15px, 1.05vw, 20px);
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -628,19 +655,19 @@ body.is-background {
 .home-content {
   position: absolute;
   z-index: 1;
-  top: clamp(72px, 6.5vw, 125px);
+  top: 124.8px;
   left: 0;
   right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(40px, 7.4vw, 142px);
-  padding: 0 clamp(24px, 2.6vw, 50px);
+  gap: 142px;
+  padding: 0 49.92px;
 }
 
 .wordmark {
   display: block;
-  width: min(93vw, 1800px);
+  width: 1785.6px;
   height: auto;
   opacity: 0.92;
   user-select: none;
@@ -652,7 +679,7 @@ body.is-background {
   max-width: 1820px;
   color: #fff;
   font-family: "Pretendard Variable", "Pretendard", sans-serif;
-  font-size: clamp(14px, 1.25vw, 24px);
+  font-size: 24px;
   font-weight: 500;
   line-height: 1.5;
   text-align: left;
@@ -663,8 +690,8 @@ body.is-background {
   position: absolute;
   z-index: 2;
   top: 0;
-  left: clamp(24px, 8.3vw, 160px);
-  width: min(83.3vw, 1600px);
+  left: 159.36px;
+  width: 1599.36px;
   height: auto;
   transform: none;
   transition: transform 900ms ease-out;
@@ -678,7 +705,7 @@ body.is-background {
 .design-page {
   display: flex;
   flex-direction: column;
-  min-height: 100svh;
+  height: 1080px;
   color: #fff;
   background: #242429;
 }
@@ -689,7 +716,7 @@ body.is-background {
   justify-content: space-between;
   flex: none;
   height: 100px;
-  padding: 0 clamp(28px, 10.4vw, 200px);
+  padding: 0 199.68px;
   background: #2e2d39;
 }
 
@@ -708,7 +735,7 @@ body.is-background {
   padding: 0 20px;
   border-bottom: 1px solid transparent;
   color: #7b7897;
-  font-size: clamp(15px, 1.25vw, 24px);
+  font-size: 24px;
   font-weight: 500;
   text-decoration: none;
 }
@@ -731,7 +758,7 @@ body.is-background {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: clamp(64px, 20vh, 270px) 24px 24px;
+  padding: 216px 24px 24px;
   box-sizing: border-box;
   opacity: 0;
   filter: blur(0);
@@ -774,22 +801,22 @@ body.is-background {
 
 .design-name-row span {
   color: #fff;
-  font-size: clamp(48px, 6.25vw, 120px);
+  font-size: 120px;
   font-weight: 600;
   line-height: 1.35;
 }
 
 .design-name-input {
   display: inline-block;
-  min-width: clamp(60px, 5vw, 80px);
-  max-width: 60vw;
+  min-width: 80px;
+  max-width: 1152px;
   padding: 0 4px;
   border: 0;
   border-bottom: 3px solid #fff;
   background: none;
   color: #fff;
   font-family: inherit;
-  font-size: clamp(48px, 6.25vw, 120px);
+  font-size: 120px;
   font-weight: 600;
   line-height: 1.35;
   text-align: center;
@@ -807,7 +834,7 @@ body.is-background {
 
 .design-name-row-sm span {
   color: #9c98b3;
-  font-size: clamp(20px, 1.9vw, 36px);
+  font-size: 36px;
   font-weight: 600;
   line-height: 1.35;
 }
@@ -821,7 +848,7 @@ body.is-background {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: #9c92dd;
-  font-size: clamp(32px, 6.25vw, 120px);
+  font-size: 120px;
   font-weight: 600;
   line-height: 1.35;
   text-align: center;
@@ -844,7 +871,7 @@ body.is-background {
   max-width: 1680px;
   flex-direction: column;
   gap: 48px;
-  padding: 0 clamp(24px, 6.25vw, 120px);
+  padding: 0 120px;
 }
 
 .design-compose-head {
@@ -862,7 +889,7 @@ body.is-background {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: #9c92dd;
-  font-size: clamp(28px, 2.5vw, 48px);
+  font-size: 48px;
   font-weight: 600;
 }
 
@@ -874,7 +901,7 @@ body.is-background {
   background: #705ea5;
   color: #fff;
   font-family: inherit;
-  font-size: clamp(16px, 1.25vw, 24px);
+  font-size: 24px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -885,7 +912,7 @@ body.is-background {
   border-radius: 36px;
   background: #2e2d39;
   color: #fff;
-  font-size: clamp(16px, 1.25vw, 24px);
+  font-size: 24px;
   font-weight: 500;
   line-height: 1.35;
   outline: none;
@@ -927,7 +954,7 @@ body.is-background {
 .design-loading h2 {
   margin: 0;
   color: #fff;
-  font-size: clamp(36px, 6.25vw, 120px);
+  font-size: 120px;
   font-weight: 600;
   line-height: 1.35;
 }
@@ -935,14 +962,14 @@ body.is-background {
 .design-loading p {
   margin: 0;
   color: #9c98b3;
-  font-size: clamp(18px, 1.9vw, 36px);
+  font-size: 36px;
   font-weight: 600;
   line-height: 1.35;
 }
 
 .design-step-5 {
   align-items: stretch;
-  padding: clamp(32px, 4.2vw, 80px) clamp(24px, 6.25vw, 120px) 40px;
+  padding: 80px 120px 40px;
   background: #1e1e1e;
 }
 
@@ -950,7 +977,7 @@ body.is-background {
   display: flex;
   align-items: flex-start;
   width: 100%;
-  gap: clamp(32px, 5.5vw, 106px);
+  gap: 105.6px;
 }
 
 .design-report-image-wrap {
@@ -965,7 +992,7 @@ body.is-background {
   display: block;
   width: 100%;
   aspect-ratio: 625 / 738;
-  border-radius: clamp(24px, 4.4vw, 84px);
+  border-radius: 84px;
   background: #2e2d39;
   object-fit: cover;
 }
@@ -986,7 +1013,7 @@ body.is-background {
 }
 
 .design-report-card {
-  padding: clamp(20px, 2.1vw, 40px);
+  padding: 40px;
   border-radius: 36px;
   background: #242429;
 }
@@ -1013,7 +1040,7 @@ body.is-background {
 .design-report-title-row h2 {
   margin: 0;
   color: #f8f8fa;
-  font-size: clamp(24px, 2.5vw, 48px);
+  font-size: 48px;
   font-weight: 600;
   line-height: 1.35;
 }
@@ -1021,7 +1048,7 @@ body.is-background {
 .design-report-text {
   margin: 0;
   color: #d4d2df;
-  font-size: clamp(15px, 1.25vw, 24px);
+  font-size: 24px;
   font-weight: 500;
   line-height: 1.7;
   white-space: pre-wrap;
@@ -1057,140 +1084,3 @@ body.is-background {
   font-weight: 600;
 }
 
-@media (max-width: 900px) {
-  .site-header {
-    height: 76px;
-    padding: 0 28px;
-  }
-
-  .header-logo {
-    width: 88px;
-  }
-
-  .header-nav {
-    gap: 16px;
-  }
-
-  .design-header {
-    height: 76px;
-    padding: 0 28px;
-  }
-
-  .background-content {
-    gap: 64px;
-  }
-
-  .background-intro {
-    grid-template-columns: 1fr;
-  }
-
-  .background-headline {
-    padding-left: 0;
-  }
-
-  .solution-intro {
-    flex-direction: column;
-  }
-
-  .solution-headline {
-    padding: 0;
-  }
-
-  .design-report {
-    flex-direction: column;
-  }
-
-  .design-report-image-wrap {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 560px) {
-  .home {
-    min-height: 560px;
-  }
-
-  .site-header {
-    height: 64px;
-    padding: 0 18px;
-  }
-
-  .header-logo {
-    width: 72px;
-  }
-
-  .header-nav {
-    gap: 10px;
-  }
-
-  .header-nav a {
-    padding: 0 8px;
-    font-size: 11px;
-  }
-
-  .background-header {
-    height: 64px;
-    padding: 0 18px;
-  }
-
-  .background-brand img {
-    width: 72px;
-  }
-
-  .background-nav {
-    gap: 10px;
-  }
-
-  .background-nav a {
-    padding: 0 8px;
-    font-size: 11px;
-  }
-
-  .design-header {
-    height: 64px;
-    padding: 0 18px;
-  }
-
-  .design-nav {
-    gap: 10px;
-  }
-
-  .design-nav a {
-    padding: 0 8px;
-    font-size: 11px;
-  }
-
-  .design-name-input {
-    max-width: 70vw;
-  }
-
-  .design-compose-box {
-    padding: 24px;
-  }
-
-  .background-content {
-    gap: 48px;
-    padding: 20px 18px 80px;
-  }
-
-  .background-hero {
-    border-radius: 18px;
-  }
-
-  .background-hero img {
-    width: 100%;
-  }
-
-  .background-quote,
-  .background-limit-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .background-card {
-    padding: 24px;
-  }
-
-  .solution-proto {
-    padding: 20px;
-  }
-}

@@ -1,3 +1,30 @@
+const stage = document.getElementById("stage");
+const stageOuter = document.getElementById("stage-outer");
+const STAGE_DESIGN_WIDTH = 1920;
+
+// 사이트는 1920x1080 기준 고정 레이아웃으로 제작되어 있고, 반응형으로 재배치하지 않는다.
+// 대신 실제 화면 크기에 맞춰 스테이지 전체를 확대/축소해서 항상 화면을 꽉 채운다.
+// - Home/Design(고정 높이 한 화면 뷰): 화면을 완전히 덮도록 cover 방식으로 확대하고 넘치는 부분은 잘라낸다.
+// - Background/Solution(세로로 긴 문서형 뷰): 가로 폭에 맞춰 확대하고 세로는 스크롤한다.
+function updateStageScale() {
+	const isScrollView = document.body.classList.contains("is-scroll-view");
+	const naturalHeight = stage.scrollHeight;
+	const scaleX = window.innerWidth / STAGE_DESIGN_WIDTH;
+
+	if (isScrollView) {
+		stage.style.transform = `scale(${scaleX})`;
+		stageOuter.style.height = `${naturalHeight * scaleX}px`;
+	} else {
+		const scaleY = window.innerHeight / naturalHeight;
+		const scale = Math.max(scaleX, scaleY);
+		stage.style.transform = `scale(${scale})`;
+		stageOuter.style.height = "";
+	}
+}
+
+window.addEventListener("resize", updateStageScale);
+updateStageScale();
+
 const hand = document.querySelector(".hand");
 const viewTriggers = document.querySelectorAll("[data-view]");
 const pages = {
@@ -283,11 +310,12 @@ function setView(view) {
 	clearTimeout(designAdvanceTimer);
 
 	const isHome = view === "home";
+	const isScrollView = view === "background" || view === "solution";
 
 	Object.entries(pages).forEach(([key, page]) => {
 		page.hidden = key !== view;
 	});
-	document.body.classList.toggle("is-background", !isHome);
+	document.body.classList.toggle("is-scroll-view", isScrollView);
 
 	if (view === "design") {
 		resetDesignFlow();
@@ -298,6 +326,8 @@ function setView(view) {
 	} else {
 		window.scrollTo(0, 0);
 	}
+
+	updateStageScale();
 }
 
 viewTriggers.forEach((trigger) => {
@@ -331,7 +361,7 @@ document.querySelectorAll(".background-card-head").forEach((head) => {
 window.addEventListener(
 	"wheel",
 	(event) => {
-		if (!hand || document.body.classList.contains("is-background") || event.deltaY === 0) {
+		if (!hand || pages.home.hidden || event.deltaY === 0) {
 			return;
 		}
 
